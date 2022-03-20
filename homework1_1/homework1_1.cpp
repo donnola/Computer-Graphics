@@ -63,13 +63,15 @@ int main( void )
 
 	// Create and compile our GLSL program from the shaders
 	GLuint programID1 = LoadShaders( "SimpleVertexShader.vertexshader", "SimpleFragmentShaderRed.fragmentshader" );
-	GLuint programID2 = LoadShaders( "SimpleVertexShader.vertexshader", "SimpleFragmentShaderYellow.fragmentshader" );
+	GLuint programID2 = LoadShaders( "MyVertexShader.vertexshader", "MyFragmentShaderYellow.fragmentshader" );
 
     GLuint MatrixID1 = glGetUniformLocation(programID1, "MVP");
     GLuint MatrixID2 = glGetUniformLocation(programID2, "MVP");
 
     glm::mat4 Projection = glm::perspective(glm::radians(90.0f), 1.0f, 0.1f, 100.0f);
+    // Model matrix : an identity matrix (model will be at the origin)
     glm::mat4 Model = glm::mat4(1.0f);
+    // Camera matrix
     glm::mat4 View;
 
 
