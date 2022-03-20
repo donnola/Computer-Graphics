@@ -78,13 +78,13 @@ int main( void )
 	static const GLfloat g_vertex_buffer_data1[] = {
             -0.5f, -0.5f, 0.0f,
             0.5f, -0.5f, 0.0f,
-            0.0f,  0.5f, 0.0f,
+            0.0f,  0.5f, 0.5f,
 	};
 
     static const GLfloat g_vertex_buffer_data2[] = {
             0.5f, 0.5f, 0.0f,
             -0.5f, 0.5f, 0.0f,
-            0.0f,  -0.5f, 0.0f,
+            0.0f,  -0.5f, 0.5f,
     };
 
 
