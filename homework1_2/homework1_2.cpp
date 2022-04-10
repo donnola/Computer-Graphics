@@ -33,7 +33,7 @@ int main( void )
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	// Open a window and create its OpenGL context
-	window = glfwCreateWindow( 1024, 768, "Tutorial 04 - Colored Cube", NULL, NULL);
+	window = glfwCreateWindow( 1024, 768, "Homework 1 - Colored crystal", NULL, NULL);
 	if( window == NULL ){
 		fprintf( stderr, "Failed to open GLFW window. If you have an Intel GPU, they are not 3.3 compatible. Try the 2.1 version of the tutorials.\n" );
 		getchar();
@@ -60,7 +60,7 @@ int main( void )
 	// Enable depth test
 	glEnable(GL_DEPTH_TEST);
 	// Accept fragment if it closer to the camera than the former one
-	glDepthFunc(GL_LESS); 
+	glDepthFunc(GL_LESS);
 
 	GLuint VertexArrayID;
 	glGenVertexArrays(1, &VertexArrayID);
@@ -73,7 +73,7 @@ int main( void )
 	GLuint MatrixID = glGetUniformLocation(programID, "MVP");
 
 	// Projection matrix : 45° Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
-    glm::mat4 Projection = glm::perspective(glm::radians(90.0f), 1.0f, 0.1f, 100.0f);
+    glm::mat4 Projection = glm::perspective(glm::radians(90.0f), 4.0f/3.0f, 0.1f, 100.0f);
 	// Camera matrix
 	glm::mat4 View;
 	// Model matrix : an identity matrix (model will be at the origin)
@@ -82,35 +82,35 @@ int main( void )
 	// Our vertices. Tree consecutive floats give a 3D vertex; Three consecutive vertices give a triangle.
 	// A cube has 6 faces with 2 triangles each, so this makes 6*2=12 triangles, and 12*3 vertices
 	static const GLfloat g_vertex_buffer_data[] = {
-            0.0f, 3.0f, 0.0f,
+            0.0f, 1.0f, 0.0f,
             -1.0f, 0.0f, -1.0f,
             -1.0f, 0.0f, 1.0f,
 
-            0.0f, 3.0f, 0.0f,
+            0.0f, 1.0f, 0.0f,
             -1.0f, 0.0f, -1.0f,
             1.0f, 0.0f, -1.0f,
 
-            0.0f, 3.0f, 0.0f,
+            0.0f, 1.0f, 0.0f,
             1.0f, 0.0f, 1.0f,
             1.0f, 0.0f, -1.0f,
 
-            0.0f, 3.0f, 0.0f,
+            0.0f, 1.0f, 0.0f,
             1.0f, 0.0f, 1.0f,
             -1.0f, 0.0f, 1.0f,
 
-            0.0f, -3.0f, 0.0f,
+            0.0f, -1.0f, 0.0f,
             -1.0f, 0.0f, -1.0f,
             -1.0f, 0.0f, 1.0f,
 
-            0.0f, -3.0f, 0.0f,
+            0.0f, -1.0f, 0.0f,
             -1.0f, 0.0f, -1.0f,
             1.0f, 0.0f, -1.0f,
 
-            0.0f,- 3.0f, 0.0f,
+            0.0f,- 1.0f, 0.0f,
             1.0f, 0.0f, 1.0f,
             1.0f, 0.0f, -1.0f,
 
-            0.0f, -3.0f, 0.0f,
+            0.0f, -1.0f, 0.0f,
             1.0f, 0.0f, 1.0f,
             -1.0f, 0.0f, 1.0f
 	};
@@ -203,7 +203,7 @@ int main( void )
 		);
 
 		// Draw the triangle !
-		glDrawArrays(GL_TRIANGLES, 0, 12*3); // 12*3 indices starting at 0 -> 12 triangles
+		glDrawArrays(GL_TRIANGLES, 0, 8*3); // 12*3 indices starting at 0 -> 12 triangles
 
 		glDisableVertexAttribArray(0);
 		glDisableVertexAttribArray(1);
